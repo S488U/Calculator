@@ -5,16 +5,21 @@
 body{
     background-color: rgb(67, 67, 67);
 }
-
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .calc {
 	width: 340px;
 	height: 555px;
-	margin-left: 28rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
 	background-color: black;
 	border-radius: 20px;
     display: flex;
     flex-direction: column;
+    
+    
     
 }
 .screen{
@@ -24,8 +29,6 @@ body{
 }
 
 .line{ /* <hr> */
-    display: flex;
-    flex-direction: column;
     border: solid 2px #fff;
 }
 #display{ /* Numbering screen*/
@@ -49,6 +52,7 @@ body{
     border: none;
     background-color: rgb(0, 0, 0);
     color: #fff;
+    transition: 0.2s;
 }
 .sub-button:hover{
     background-color: rgb(52, 52, 52);
@@ -74,12 +78,15 @@ body{
 .last{
     color: #fff;
     display: flex;
-    justify-content: flex-end;
+
 }
 
-@media only screen and (max-width:600px){
-
+@media screen and (min-width: 600px) {
     .calc{
         margin-left: 0;
-     }
+    }
+    footer{
+        padding: 0;
+        margin: 0;
+    }
 }
