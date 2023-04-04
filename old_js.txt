@@ -1,0 +1,35 @@
+function buttonClick(val) {
+    var display = document.getElementById("display");
+    if (val === "%") {
+      var text = display.value;
+      if (text.length > 0 && !isNaN(text)) { // check if input is a number
+        var num = parseFloat(text);
+        display.value = num + val; // append percentage sign to number
+      }
+    } else {
+      display.value = display.value + val; // append non-percentage value
+    }
+  }
+  
+
+function clearDisplay(){
+    document.getElementById("display").value=""
+}
+
+function equalClick() {
+    var text = document.getElementById("display").value;
+    var result;
+    if (text.indexOf("%") !== -1) { // check if percentage sign is present
+      var num = parseFloat(text);
+      result = num / 100; // convert to percentage value
+    } else {
+      result = eval(text); // perform calculation
+    }
+    document.getElementById("display").value = result;
+  }
+  
+
+function backKey(){
+    document.getElementById("display").value=document.getElementById("display").value.slice(0, -1);
+}
+

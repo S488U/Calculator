@@ -1,27 +1,200 @@
 *{
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
-body{
-    background-color: rgb(67, 67, 67);
-}
-.all{
+
+:root {
+    --main-Bg: rgb(67, 67, 67);
+    --calc-Bg: #000;
+    --border-color: #fff;
+    --input-text-color: rgb(46, 251, 59);
+    --btn-hover-color: rgb(52, 52, 52);
+    --btn-eq-color: rgb(255, 0, 128);
+    --text-color: #ffffff;
+    --operator-color: rgb(33, 33, 33);
+
+    /*light mode */
+    --light_Bg: #FFFBF5;
+    --calc-light: #F7EFE5;
+    --sub-btn-light: #f8eee1;
+    --operator-light: #F8CBA6;
+    --sub-hover: #FFE7CC;
+  }
+  
+  body {
+    background-color: var(--main-Bg);
+    color: var(--text-color);
+  }
+  
+  .all {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+  }
+  
+  /***Dark mode **/
+  
+  /* Toggle switch styles */
+  .toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--btn-eq-color);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  /* Dark mode styles */
+  .light-mode {
+    background-color: var(--light_Bg);
+    color: #fff;
+  }
+  
+  .light-mode .all { 
+    background-color: var(--light_Bg);
+  }
+
+  .light-mode .calc {
+    background-color: var(--calc-light);
+  }
+
+  .light-mode .sub-button {
+    background-color: var(--sub-btn-light);
+    border-radius: 50%;
+    color: var(--calc-Bg);
+  }
+
+  .light-mode .sub-button:hover {
+    background-color: var(--sub-hover);
+    color: #333;
+  }
+
+  .light-mode #display {
+    background-color: var(--calc-light);
+  }
+
+  .light-mode #sub {
+    color: var(--calc-light);
+  }
+
+  .light-mode #sub-items{
+    background-color: var(--operator-light);
+    }
+
+  .light-mode .footer-div p{
+    color: #ff0000;
+  }
+  
+  .light-mode .operator {
+    color: var(--operator-color);
+  }
+
+  .fa-moon {
+    color:  var(--btn-eq-color);
+    margin: 0 10px;
+  }
+
+  .fa-sun {
+    color: var(--btn-eq-color);
+    margin: 0 10px;
+  }
+  
+/******/
+
+.footer-div {
+    width: 40%;
+    height: auto;
 }
+
+.footer-div p a {
+    text-decoration: none;
+    color: var(--btn-eq-color);
+}
+
+.footer-div footer {
+    width: 70%;
+    margin: 0 0 0 2rem;
+}
+
+footer div p {
+    color: var(--text-color);
+}
+
+footer div a {
+    color: var(--btn-eq-color);
+    text-decoration: none;
+    margin-right: 10px;
+    transition: 150ms;
+}
+
+footer div a:hover {
+    color: var(--text-color);
+}
+
 .calc {
-	width: 340px;
-	height: 555px;
-    margin-top: 0rem;
-	background-color: black;
-	border-radius: 20px;
+    width: 347px;
+    height: 555px;
+    margin: 1rem 0rem;
+    background-color: var(--calc-Bg);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    
-    
-    
 }
+
 .screen{
     padding: 10px;
     width: 200px;
@@ -29,7 +202,7 @@ body{
 }
 
 .line{ /* <hr> */
-    border: solid 2px #fff;
+    border: solid 2px var(--border-color);
 }
 #display{ /* Numbering screen*/
     width: 280px;
@@ -38,41 +211,48 @@ body{
     border: none;
     pointer-events: none;
     font-size: x-large;
-    background-color: black;
-    color: rgb(46, 251, 59);
+    background-color: var(--calc-Bg);
+    color: var(--input-text-color);
 
 }
 .button{
    padding: 0%;
    margin-left: 4px; ;
+   outline: none;
 }
+
+.button:focus:hover:active {
+    outline: none;
+}
+
 .sub-button {
 	width: 80px;
 	height: 80px;
     border: none;
-    background-color: rgb(0, 0, 0);
-    color: #fff;
+    background-color:  var(--calc-Bg);
+    color: var(--text-color);
     transition: 0.2s;
+    font-size: 20px;
 }
 .sub-button:hover{
-    background-color: rgb(52, 52, 52);
+    background-color: var(--btn-hover-color);
     border-radius: 50%;
 }
 #sub{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: rgb(255, 0, 128);
+    background-color: var(--btn-eq-color);
 }
 
 #sub-items{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: rgb(33, 33, 33);
+    background-color: var(--operator-color);
 }
 #sub-items:hover{
-    background-color: rgb(52, 52, 52);
+    background-color: var(--btn-hover-color);
     border-radius: 50%;
 }
 .last{
@@ -81,12 +261,59 @@ body{
 
 }
 
-@media screen and (min-width: 600px) {
+@media only  screen and (max-width:600px) {
     .calc{
         margin-left: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+
+    .toggle-container{
+        z-index: 3;
+        top: 0px;
+        right: -13px;
+    }
+
+
+    .switch {
+        width: 40px;
+        height: 24px;
+    }
+
+    .slider::before {
+        height: 16px;
+        width: 16px;
+    }
+
+    input:checked + .slider:before  {
+        -webkit-transform: translateX(18px);
+        -ms-transform: translateX(18px);
+        transform: translateX(18px);
+    }
+
+    .footer-div {
+        position: absolute;
+        top: 32rem;
+        left: 0;
+        right: 0px;
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    .footer-div footer {
+        margin: 0 0 0 1rem;
+    }
+
+    .all {
+        flex-direction: column;
+        position: relative;
     }
     footer{
         padding: 0;
         margin: 0;
     }
+
 }
