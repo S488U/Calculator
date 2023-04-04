@@ -20,6 +20,7 @@
     --sub-btn-light: #f8eee1;
     --operator-light: #F8CBA6;
     --sub-hover: #FFE7CC;
+    --light-text: #333;
   }
   
   body {
@@ -143,6 +144,10 @@
     color: var(--operator-color);
   }
 
+  .light-mode #display {
+    color: var(--light-text);
+  }
+
   .fa-moon {
     color:  var(--btn-eq-color);
     margin: 0 10px;
@@ -151,6 +156,10 @@
   .fa-sun {
     color: var(--btn-eq-color);
     margin: 0 10px;
+  }
+
+  .sp-3 {
+    margin-left: 5px;
   }
   
 /******/
@@ -274,7 +283,7 @@ footer div a:hover {
     .toggle-container{
         z-index: 3;
         top: 0px;
-        right: -13px;
+        right: -10px;
     }
 
 
