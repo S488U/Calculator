@@ -1,7 +1,3 @@
-
-
-
-
 // Define a variable to store the display element
 var display = document.getElementById("display");
 
