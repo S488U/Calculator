@@ -136,6 +136,10 @@
     background-color: var(--operator-light);
     }
 
+.light-mode #sub-items:hover{
+    background-color: var(--operator-light);
+    }
+
   .light-mode .footer-div p{
     color: #ff0000;
   }
